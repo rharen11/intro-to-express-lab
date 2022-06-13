@@ -1,6 +1,8 @@
 // import modules
 
-import express from 'express'
+import express from "express"
+
+import { students } from "./data/student-data.js"
 
 // Create Express app
 
@@ -8,6 +10,7 @@ const app = express()
 
 // Configure the app (app.set)
 
+app.set('view engine', 'ejs')
 
 
 // Mount Middleware (app.use)
@@ -15,8 +18,10 @@ const app = express()
 
 
 // Mount routes
-app.get('/', function(req, res){
-    res.send('<h1>Hello, World!</h1>')
+app.get('/students', function(req, res){
+  res.render('students/index.ejs', {
+    students: students
+  })
 })
 
 
