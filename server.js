@@ -18,6 +18,11 @@ app.set('view engine', 'ejs')
 
 
 // Mount routes
+
+app.get('/', function(req, res){
+  res.send('<h1>Home Page</h1>')
+})
+
 app.get('/students', function(req, res){
   res.render('students/index.ejs', {
     students: students
